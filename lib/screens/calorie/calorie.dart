@@ -1,5 +1,6 @@
 import 'package:fitness_health_calculator/calculators/bmr_calculator.dart';
-import 'package:fitness_health_calculator/screens/bmr/bmr_result.dart';
+import 'package:fitness_health_calculator/calculators/calorie_calculator.dart';
+import 'package:fitness_health_calculator/screens/Calorie/Calorie_result.dart';
 import 'package:fitness_health_calculator/utils/constants.dart';
 import 'package:fitness_health_calculator/utils/utils.dart';
 import 'package:fitness_health_calculator/widgets/calculate_button.dart';
@@ -9,25 +10,26 @@ import 'package:fitness_health_calculator/widgets/decrement_button.dart';
 import 'package:fitness_health_calculator/widgets/male_card.dart';
 import 'package:flutter/material.dart';
 
-class BMR extends StatefulWidget {
-  const BMR({super.key});
+class Calorie extends StatefulWidget {
+  const Calorie({super.key});
 
   @override
-  State<BMR> createState() => _BMRState();
+  State<Calorie> createState() => _CalorieState();
 }
 
-class _BMRState extends State<BMR> {
+class _CalorieState extends State<Calorie> {
   double weight = 65;
   double height = 170;
   int age = 19;
   String gender = MALE;
+  String isSelected = COUPLEDAYS;
 
   @override
   Widget build(BuildContext context) {
-    print(gender);
+    print(isSelected);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMR Calculator'),
+        title: const Text('Calorie Calculator'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -79,6 +81,61 @@ class _BMRState extends State<BMR> {
                         min: 120,
                         max: 220,
                         onChanged: _onChangedHeight,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Card(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Excercise',
+                        style: kMeduimLabelTextStyle,
+                      ),
+                      Text(
+                        isSelected,
+                        style: kMeduimNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            children: [
+                              Radio(
+                                value: NO_EXCERCISE,
+                                groupValue: isSelected,
+                                onChanged: (value) => setState(() {
+                                  isSelected = value!;
+                                }),
+                              ),
+                            ],
+                          ),
+                          Radio(
+                            value: FEWDAYS,
+                            groupValue: isSelected,
+                            onChanged: (value) => setState(() {
+                              isSelected = value!;
+                            }),
+                          ),
+                          Radio(
+                            value: COUPLEDAYS,
+                            groupValue: isSelected,
+                            onChanged: (value) => setState(() {
+                              isSelected = value!;
+                            }),
+                          ),
+                          Radio(
+                            value: DAILY,
+                            groupValue: isSelected,
+                            onChanged: (value) => setState(() {
+                              isSelected = value!;
+                            }),
+                          ),
+                        ],
                       )
                     ],
                   ),
@@ -166,12 +223,18 @@ class _BMRState extends State<BMR> {
                     gender: gender,
                   );
 
+                  CalorieCalculator calorieCalculator = CalorieCalculator(
+                    bmrResult: bmrCalculator.getBMRResult(),
+                    excercise: isSelected,
+                    gender: gender,
+                  );
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => BMRResult(
-                        bmrResult: bmrCalculator.getBMRResult(),
-                        genderIcon: bmrCalculator.getGenderIcon(),
+                      builder: (context) => CalorieResult(
+                        calorieResult: calorieCalculator.getCalorieResult(),
+                        genderIcon: calorieCalculator.getGenderIcon(),
                       ),
                     ),
                   );

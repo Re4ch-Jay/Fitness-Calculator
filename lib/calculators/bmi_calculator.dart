@@ -8,7 +8,7 @@ class BMICalculator extends Calculator {
   });
 
   double getBMIResult() {
-    return weight / pow((height / 100), 2);
+    return weight! / pow((height! / 100), 2);
   }
 
   String getInterpretation() {

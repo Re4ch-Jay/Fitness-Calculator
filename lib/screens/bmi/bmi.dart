@@ -22,7 +22,7 @@ class _BMIState extends State<BMI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fitness Calculator'),
+        title: const Text('BMI Calculator'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),

@@ -2,19 +2,21 @@ import 'package:fitness_health_calculator/utils/utils.dart';
 import 'package:fitness_health_calculator/widgets/re_calculate_button.dart';
 import 'package:flutter/material.dart';
 
-class BMRResult extends StatelessWidget {
-  const BMRResult({
+class IDWResult extends StatelessWidget {
+  const IDWResult({
     super.key,
-    required this.bmrResult,
+    required this.idwResult,
     required this.genderIcon,
   });
-  final double bmrResult;
+
+  final double idwResult;
   final IconData genderIcon;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMR Calculator'),
+        title: const Text('IDW Calculator'),
         automaticallyImplyLeading: false,
       ),
       body: Padding(
@@ -40,11 +42,11 @@ class BMRResult extends StatelessWidget {
                         style: kLabelTextStyle,
                       ),
                       Text(
-                        bmrResult.toStringAsFixed(1),
+                        idwResult.toStringAsFixed(1),
                         style: kNumberTextStyle,
                       ),
                       const Text(
-                        'Calories/Day',
+                        'Kgs',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

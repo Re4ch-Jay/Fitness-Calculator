@@ -2,19 +2,18 @@ import 'package:fitness_health_calculator/utils/utils.dart';
 import 'package:fitness_health_calculator/widgets/re_calculate_button.dart';
 import 'package:flutter/material.dart';
 
-class BMRResult extends StatelessWidget {
-  const BMRResult({
+class HealthyWeightResult extends StatelessWidget {
+  const HealthyWeightResult({
     super.key,
-    required this.bmrResult,
-    required this.genderIcon,
+    required this.healthyWeightResult,
   });
-  final double bmrResult;
-  final IconData genderIcon;
+  final String healthyWeightResult;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMR Calculator'),
+        title: const Text('Healthy Weight'),
         automaticallyImplyLeading: false,
       ),
       body: Padding(
@@ -30,21 +29,27 @@ class BMRResult extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(
-                        genderIcon,
-                        color: Colors.deepPurple,
-                        size: 150,
-                      ),
                       const Text(
                         'Result',
                         style: kLabelTextStyle,
                       ),
                       Text(
-                        bmrResult.toStringAsFixed(1),
+                        healthyWeightResult,
                         style: kNumberTextStyle,
+                        textAlign: TextAlign.center,
                       ),
                       const Text(
-                        'Calories/Day',
+                        'Kgs',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.5,
+                          color: Colors.grey,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const Text(
+                        'is the good weight to aim',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

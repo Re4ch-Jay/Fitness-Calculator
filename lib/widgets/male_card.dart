@@ -16,13 +16,13 @@ class MaleCard extends StatelessWidget {
             Icon(
               Icons.male,
               color: color,
-              size: 100,
+              size: 80,
             ),
             Text(
               'Male',
               style: TextStyle(
                 color: color,
-                fontSize: 30,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),

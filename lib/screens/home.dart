@@ -1,3 +1,6 @@
+import 'package:fitness_health_calculator/screens/calorie/calorie.dart';
+import 'package:fitness_health_calculator/screens/healthy_weight/healthy_weight.dart';
+import 'package:fitness_health_calculator/screens/idw/idw.dart';
 import 'package:flutter/material.dart';
 import '../widgets/fitness_card.dart';
 import './bmi/bmi.dart';
@@ -62,17 +65,31 @@ class Home extends StatelessWidget {
                         );
                       },
                     ),
-                    const FitnessCard(
+                    FitnessCard(
                       icon: Icons.fitness_center,
                       title: 'IDW',
                       subTitle: 'Calculate the Ideal Weight',
-                      onTap: null,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const IDW(),
+                          ),
+                        );
+                      },
                     ),
-                    const FitnessCard(
+                    FitnessCard(
                       icon: Icons.fitness_center,
                       title: 'Calorie',
                       subTitle: 'Calculate the Calorie',
-                      onTap: null,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Calorie(),
+                          ),
+                        );
+                      },
                     ),
                     const FitnessCard(
                       icon: Icons.fitness_center,
@@ -80,11 +97,18 @@ class Home extends StatelessWidget {
                       subTitle: 'Calculate the Body Fat',
                       onTap: null,
                     ),
-                    const FitnessCard(
+                    FitnessCard(
                       icon: Icons.fitness_center,
                       title: 'Weight',
                       subTitle: 'Calculate the Healthy Weight',
-                      onTap: null,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HealthyWeight(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

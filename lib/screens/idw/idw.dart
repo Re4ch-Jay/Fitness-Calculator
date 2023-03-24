@@ -1,5 +1,5 @@
-import 'package:fitness_health_calculator/calculators/bmr_calculator.dart';
-import 'package:fitness_health_calculator/screens/bmr/bmr_result.dart';
+import 'package:fitness_health_calculator/calculators/idw_calculator.dart';
+import 'package:fitness_health_calculator/screens/IDW/IDW_result.dart';
 import 'package:fitness_health_calculator/utils/constants.dart';
 import 'package:fitness_health_calculator/utils/utils.dart';
 import 'package:fitness_health_calculator/widgets/calculate_button.dart';
@@ -9,25 +9,23 @@ import 'package:fitness_health_calculator/widgets/decrement_button.dart';
 import 'package:fitness_health_calculator/widgets/male_card.dart';
 import 'package:flutter/material.dart';
 
-class BMR extends StatefulWidget {
-  const BMR({super.key});
+class IDW extends StatefulWidget {
+  const IDW({super.key});
 
   @override
-  State<BMR> createState() => _BMRState();
+  State<IDW> createState() => _IDWState();
 }
 
-class _BMRState extends State<BMR> {
-  double weight = 65;
+class _IDWState extends State<IDW> {
   double height = 170;
   int age = 19;
   String gender = MALE;
 
   @override
   Widget build(BuildContext context) {
-    print(gender);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMR Calculator'),
+        title: const Text('IDW Calculator'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -94,38 +92,6 @@ class _BMRState extends State<BMR> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const Text(
-                              'WEIGHT',
-                              style: kMeduimLabelTextStyle,
-                            ),
-                            Text(
-                              weight.toStringAsFixed(0),
-                              style: kMeduimNumberTextStyle,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                DecrementButton(
-                                  onTap: _decrementWeight,
-                                ),
-                                const SizedBox(
-                                  width: 15,
-                                ),
-                                IncrementButton(
-                                  onTap: _incrementWeight,
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Text(
                               'AGE',
                               style: kMeduimLabelTextStyle,
                             ),
@@ -159,19 +125,19 @@ class _BMRState extends State<BMR> {
               ),
               CalculateButton(
                 onTap: () {
-                  BMRCalculator bmrCalculator = BMRCalculator(
+                  IDWCalculator idwCalculator = IDWCalculator(
                     height: height,
-                    weight: weight,
-                    age: age,
                     gender: gender,
                   );
+
+                  idwCalculator.getIDWResult();
 
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => BMRResult(
-                        bmrResult: bmrCalculator.getBMRResult(),
-                        genderIcon: bmrCalculator.getGenderIcon(),
+                      builder: (context) => IDWResult(
+                        idwResult: idwCalculator.getIDWResult(),
+                        genderIcon: idwCalculator.getGenderIcon(),
                       ),
                     ),
                   );
@@ -188,13 +154,6 @@ class _BMRState extends State<BMR> {
         height = value;
       });
 
-  void _decrementWeight() => setState(() {
-        weight--;
-      });
-
-  void _incrementWeight() => setState(() {
-        weight++;
-      });
   void _decrementAge() => setState(() {
         age--;
       });
