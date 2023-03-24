@@ -2,6 +2,8 @@ import 'package:fitness_health_calculator/screens/bmi/bmi_result.dart';
 import 'package:fitness_health_calculator/utils/utils.dart';
 import 'package:fitness_health_calculator/calculators/bmi_calculator.dart';
 import 'package:fitness_health_calculator/widgets/calculate_button.dart';
+import 'package:fitness_health_calculator/widgets/decrement_button.dart';
+import 'package:fitness_health_calculator/widgets/increment_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -46,29 +48,19 @@ class _BMIState extends State<BMI> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          GestureDetector(
-                            onTap: _incrementWeight,
-                            child: const CircleAvatar(
-                              radius: 40,
-                              child: Icon(
-                                FontAwesomeIcons.minus,
-                                size: 60,
-                              ),
-                            ),
+                          DecrementButton(
+                            onTap: _decrementWeight,
+                            iconSize: 60,
+                            radius: 40,
                           ),
                           const SizedBox(
                             width: 20,
                           ),
-                          GestureDetector(
-                            onTap: _decrementWeight,
-                            child: const CircleAvatar(
-                              radius: 40,
-                              child: Icon(
-                                Icons.add,
-                                size: 80,
-                              ),
-                            ),
-                          ),
+                          IncrementButton(
+                            onTap: _incrementWeight,
+                            iconSize: 60,
+                            radius: 40,
+                          )
                         ],
                       )
                     ],
@@ -131,10 +123,10 @@ class _BMIState extends State<BMI> {
       });
 
   void _decrementWeight() => setState(() {
-        weight++;
+        weight--;
       });
 
   void _incrementWeight() => setState(() {
-        weight--;
+        weight++;
       });
 }

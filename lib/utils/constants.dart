@@ -1,2 +1,2 @@
 const MALE = 'MALE';
-const FEMALE = 'MALE';
+const FEMALE = 'FEMALE';

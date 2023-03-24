@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/fitness_card.dart';
 import './bmi/bmi.dart';
+import './bmr/bmr.dart';
 
 class Home extends StatelessWidget {
   const Home({
@@ -48,11 +49,18 @@ class Home extends StatelessWidget {
                         );
                       },
                     ),
-                    const FitnessCard(
+                    FitnessCard(
                       icon: Icons.fitness_center,
                       title: 'BMR',
                       subTitle: 'Calculate the Basic Metabolic Rate',
-                      onTap: null,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BMR(),
+                          ),
+                        );
+                      },
                     ),
                     const FitnessCard(
                       icon: Icons.fitness_center,

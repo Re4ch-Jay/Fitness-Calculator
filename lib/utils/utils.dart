@@ -5,9 +5,21 @@ const kLabelTextStyle = TextStyle(
   letterSpacing: 2,
 );
 
+const kMeduimLabelTextStyle = TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.bold,
+);
+
 const kNumberTextStyle = TextStyle(
   fontSize: 80,
   letterSpacing: 2,
+  color: Colors.deepPurple,
+);
+
+const kMeduimNumberTextStyle = TextStyle(
+  fontSize: 50,
+  fontWeight: FontWeight.bold,
+  letterSpacing: 1.5,
   color: Colors.deepPurple,
 );
 
