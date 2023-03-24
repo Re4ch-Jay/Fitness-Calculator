@@ -2,31 +2,22 @@
 
 A calculator tool to calculate, keep track your health and analyse your fitness.👨‍⚕️💜
 
+<img src="images/demo1.png">
+<img src="images/demo2.png">
+
 ### Features
 
-#### BMI
+BMI - Calculate the Body Mass Index
 
-Calculate the Body Mass Index
+BMR - Calculate the Basic Metabolic Rate
 
-#### BMR
+IDW - Calculate the Ideal Weight
 
-Calculate the Basic Metabolic Rate
+Calorie - Calculate the Calorie
 
-#### IDW
+Body Fat - Calculate the Body Fat
 
-Calculate the Ideal Weight
-
-#### Calorie
-
-Calculate the Calorie
-
-#### Body Fat
-
-Calculate the Body Fat
-
-#### Weight
-
-Calculate the Healthy Weight
+Weight - Calculate the Healthy Weight
 
 ### Packages
 
