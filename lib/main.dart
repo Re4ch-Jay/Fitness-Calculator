@@ -1,5 +1,5 @@
+import 'package:fitness_health_calculator/screens/home.dart';
 import 'package:flutter/material.dart';
-import '../screens/home.dart';
 import '../theme/app_theme.dart';
 
 void main() => runApp(const App());

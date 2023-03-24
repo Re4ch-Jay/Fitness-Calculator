@@ -12,5 +12,5 @@ ThemeData appTheme() => ThemeData.light(useMaterial3: true).copyWith(
         iconTheme: IconThemeData(color: Colors.white),
         centerTitle: true,
       ),
-      scaffoldBackgroundColor: Colors.deepPurple[200],
+      scaffoldBackgroundColor: Colors.white,
     );
